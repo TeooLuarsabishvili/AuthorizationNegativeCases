@@ -10,7 +10,9 @@
 
         <classes>
 
-         <class name="AuthorizationGeorgianLanguage"></class>
+            <class name="AuthorizationGeorgianLanguage"></class>
+            <class name="AuthorizationOnMegrelianLanguage"></class>
+            <class name="AuthorizationOnSvanLanguage"></class>
 
         </classes>
     </test>

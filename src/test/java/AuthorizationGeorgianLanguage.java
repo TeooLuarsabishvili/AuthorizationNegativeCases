@@ -12,15 +12,11 @@ import org.testng.asserts.SoftAssert;
 
 
 public class AuthorizationGeorgianLanguage extends SetUp {
-    LogInPageData loginPageData = new LogInPageData();
     LogInPage logInPage = new LogInPage();
     SoftAssert softAssert = new SoftAssert();
+    LogInPageData loginPageData = new LogInPageData();
     public   String userName = RandomStringUtils.randomAlphabetic(5);
     public   String Password = RandomStringUtils.randomNumeric(5)+RandomStringUtils.randomAlphabetic(8);
-
-
-
-
 
     @BeforeMethod
      public void setUp(){
@@ -33,16 +29,16 @@ public class AuthorizationGeorgianLanguage extends SetUp {
         return new Object[][] {{userName}, {Password}};
     }
 
-    @Feature("Authorization negative case for Georgian Language")
+    @Feature("Negative case of Authorization for Georgian Language")
     @Test
-    public void test() {
+    public void failedAuthorizationForGeorgianLanguage() {
          logInPage.checkMainPageUrl(driver);
          logInPage.findLanguage(driver);
          softAssert.assertEquals(loginPageData.georgianLanguage,(logInPage.getLanguageText(driver)));
          logInPage.fillUserNameInput(driver, userName);
          logInPage.fillUserPasswordInput(driver,Password);
          logInPage.clickSubmitButton(driver);
-         softAssert.assertEquals(logInPage.checkAuthorizationErrorMassage(driver),loginPageData.AuthorizationErrorMassage);
+         softAssert.assertEquals(logInPage.checkAuthorizationErrorMassage(driver),loginPageData.authorizationErrorMassage);
     }
 
     @AfterClass
